@@ -45,15 +45,15 @@ public class LoginExcelTest {
 
 	@AfterMethod
 	public void tearDown() throws Exception {
-		driver.quit();
+		//driver.quit();
 	}
 
-	@Test(dataProvider = "excel-inputs", dataProviderClass = LoginDataProviders.class)
-	public void loginDBTest(String userName, String password) {
+	@Test(dataProvider = "excel-inputs", dataProviderClass = LoginDataProviders.class) //use this in test file
+	public void loginDBTest(String userName, String password) {    //add String email , String password
 		loginPOM.sendUserName(userName);
 		loginPOM.sendPassword(password);
 		loginPOM.clickLoginBtn();
-		screenShot.captureScreenShot(userName);
+		//screenShot.captureScreenShot(userName);
 
 	}
 

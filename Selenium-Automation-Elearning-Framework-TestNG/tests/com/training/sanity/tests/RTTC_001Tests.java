@@ -66,11 +66,11 @@ public class RTTC_001Tests {
 	public void validNewUserRegistrationTest() throws InterruptedException {
 
 		RTTC_001POM.moveMouseToaccountLink();
-		test.log(LogStatus.INFO, "Test Step 1.", "Mouse hover to the account link");
+		test.log(LogStatus.INFO, "Test Step 1.", "Mouse over to the account link");
 		Thread.sleep(3000);
 
 		RTTC_001POM.moveMouseTologinLink();
-		test.log(LogStatus.INFO, "Test Step 2.", "Mouse hover to the  Login/Register link");
+		test.log(LogStatus.INFO, "Test Step 2.", "Mouse over to the  Login/Register link");
 		RTTC_001POM.clickloginLink();
 		test.log(LogStatus.INFO, "Test Step 3.", "Clicked on Login/Register link");
 
@@ -81,7 +81,7 @@ public class RTTC_001Tests {
 		test.log(LogStatus.INFO, "Test Step 5.", "Enter value on first name");
 		RTTC_001POM.sendlastName("last");
 		test.log(LogStatus.INFO, "Test Step 6.", "Enter value on last name");
-		RTTC_001POM.sendemail("test0603h2@test2.com");
+		RTTC_001POM.sendemail("test0603h4@test2.com");
 		test.log(LogStatus.INFO, "Test Step 7.", "Enter value  on email address");
 		RTTC_001POM.sendtelePhone("1234567890");
 		test.log(LogStatus.INFO, "Test Step 8.", "Enter value on phone number");

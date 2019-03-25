@@ -146,9 +146,9 @@ public class RTTC_001POM {
 
 	}
 
-	public void sendpostcode(String postcode) {
+	public void sendpostcode(String postalcode) {
 
-		this.postcode.sendKeys(postcode);
+		this.postcode.sendKeys(postalcode);
 
 	}
 

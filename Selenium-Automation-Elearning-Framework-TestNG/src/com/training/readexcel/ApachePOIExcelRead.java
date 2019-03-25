@@ -31,7 +31,7 @@ public class ApachePOIExcelRead {
 			XSSFWorkbook workbook = new XSSFWorkbook(file);
 
 			// Get first/desired sheet from the workbook
-			XSSFSheet sheet = workbook.getSheetAt(0);
+			XSSFSheet sheet = workbook.getSheetAt(0);   //  put the sheet name --Sayan
 			
 			int rowTotal = sheet.getLastRowNum();
 
@@ -60,10 +60,11 @@ public class ApachePOIExcelRead {
 					// Check the cell type and format accordingly
 					switch (cell.getCellType()) {
 
-					case Cell.CELL_TYPE_NUMERIC:
+					case Cell.CELL_TYPE_NUMERIC:   //cell type
 						
 						if(((Double) cell.getNumericCellValue()).toString()!=null){
-							tempList1[cellCount] = ((Double) cell.getNumericCellValue()).toString(); 
+							tempList1[cellCount] = ((Double) cell.getNumericCellValue()).toString(); //edit earlier
+							 
 						} 
 						break;
 					case Cell.CELL_TYPE_STRING:
@@ -89,8 +90,11 @@ public class ApachePOIExcelRead {
 	}
 
 	public static void main(String[] args) {
-		String fileName = "C:/Users/Naveen/Desktop/Testing.xlsx";
-		
+		//String fileName = "C:/Users/Naveen/Desktop/Testing.xlsx";   //give the filename xls
+		   String fileName= "C:\\Users\\SayantanChatterjee\\Desktop\\DataSheet_ATS\\TC1_NEW.xlsx" ;
+		  // String sheetname = "sheetname" ;
+		   
+		   
 		for(String [] temp : new ApachePOIExcelRead().getExcelContent(fileName)){
 			for(String  tt : temp){
 				System.out.println(tt);

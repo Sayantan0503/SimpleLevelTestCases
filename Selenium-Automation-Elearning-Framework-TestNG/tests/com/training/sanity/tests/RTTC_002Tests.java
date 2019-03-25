@@ -77,7 +77,7 @@ public class RTTC_002Tests {
 		if (expectedResult.equals(actualResult)) {
 			test.log(LogStatus.PASS, "Test Passed", "User has successfully logged in");
 		}
-		
+			
 		else  {
 			test.log(LogStatus.FAIL, "Test Failed", "Please check your input credentials");
 		}
