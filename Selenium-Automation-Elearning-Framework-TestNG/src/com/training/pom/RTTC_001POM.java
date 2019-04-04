@@ -86,6 +86,10 @@ public class RTTC_001POM {
 	@FindBy(xpath="//p[contains(text(),'Congratulations! Your new account has been success')]")
           private WebElement welcomeMessage ;
       
+	@FindBy(xpath="//div[@class='text-danger']")
+	    private WebElement warningMessage;
+	
+	
 	 public void moveMouseToaccountLink() {
 		 Actions act2 =new Actions(driver);
 		 act2.moveToElement(accountLink).build().perform();
@@ -193,7 +197,9 @@ public class RTTC_001POM {
 		return this.welcomeMessage.getText();
 	}
 	
-	
+	public String getTextForwarningMessage() {
+		return this.warningMessage.getText();
+	}
 	
 	/*
 	 * public void clickLoginBtn() { this.loginBtn.click();

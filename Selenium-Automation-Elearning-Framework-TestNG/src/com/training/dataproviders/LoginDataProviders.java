@@ -47,9 +47,11 @@ public class LoginDataProviders {
 	@DataProvider(name = "excel-inputs")   // use this apache poi for Complex TC
 	public Object[][] getExcelData(){
 		//String fileName ="C:/Users/Naveen/Desktop/Testing.xlsx";   //you have to change the path 2nd one 
-		String fileName ="C:\\Users\\SayantanChatterjee\\Desktop\\DataSheet_ATS\\TC1_NEW.xlsx";
+		String fileName ="C:\\Users\\SayantanChatterjee\\Desktop\\DataSheet_ATS\\TC_62.xlsx";
+		String sheetname="Sheet 1"; //added 25032019
 		//String fileName= "C:\\Users\\SayantanChatterjee\\Desktop\\DataSheet_ATS\\TC_MS.xlsx";
-		return new ApachePOIExcelRead().getExcelContent(fileName); 
+		//return new ApachePOIExcelRead().getExcelContent(fileName);  //previous
+		return new ApachePOIExcelRead().getExcelContent(fileName ,sheetname);
 	}
 	
 	@DataProvider(name = "xls-inputs")

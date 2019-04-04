@@ -47,6 +47,7 @@ public class RTTC_062ExcelTests {
 	@BeforeMethod
 	public void setUp() throws Exception {
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
+		
 		RTTC_001POM = new RTTC_001POM(driver);
 		baseUrl = properties.getProperty("baseURL");
 		screenShot = new ScreenShot(driver);

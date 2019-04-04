@@ -113,6 +113,7 @@ public class RTTC_001Tests {
 		String expectedResult = "Congratulations! Your new account has been successfully created!";
 		String actualResult = (RTTC_001POM.getTextForwelcomeMesage());
 		Assert.assertEquals(actualResult, expectedResult);
+		
 
 		if (expectedResult.equals(actualResult)) {
 			test.log(LogStatus.PASS, "Test Passed", "A new accont has been created successfully");

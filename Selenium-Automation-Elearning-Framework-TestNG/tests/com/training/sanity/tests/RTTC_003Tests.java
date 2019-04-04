@@ -51,8 +51,9 @@ public class RTTC_003Tests {
 
 		screenShot = new ScreenShot(driver);
 		report = new ExtentReports("report\\RTTC_003.html");
-		test = report.startTest("Test Case RTTC_003");
-		driver.get(baseUrl); // opening the browser
+		test = report.startTest("Test Case RTTC_003");	
+	    driver.get(baseUrl); // opening the browser
+	    
 	}
 
 	@AfterMethod

@@ -11,10 +11,10 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ISelect;
 import org.openqa.selenium.support.ui.Select;
 
-public class RTTC_035POM {
+public class RTTC_065POM {
 	private WebDriver driver;
 
-	public RTTC_035POM(WebDriver driver) {
+	public RTTC_065POM(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
@@ -102,7 +102,30 @@ public class RTTC_035POM {
 	        private WebElement saveButton ;
 	   
 	   
+	   @FindBy(xpath="//*[@id='header']/ul/li[4]/a/span")
+	        private WebElement logoutBtn;
+	   
+	   
+	   @FindBy(xpath="//span[contains(text(),'Shop')]")
+	        private WebElement shopLink;
+	   
+	   @FindBy(xpath="//span[contains(text(),'Earrings')]")
+	       private WebElement earrings;
+	   
+	   @FindBy(xpath="//input[@id='mfilter-opts-search']")
+	         private WebElement searchfield;
+	   
+	   @FindBy(xpath="//span[contains(text(),'2,603')]")
+	           private WebElement imgPrice;
+	   
+	   
+	   public String getAttributeusername(String str) {
 			 
+			return this.username.getAttribute(str);
+		}
+	   
+	   
+	   
 	public void sendusername(String username) {
 		this.username.sendKeys(username);
 	}
@@ -130,17 +153,10 @@ public class RTTC_035POM {
 	}
 
 	public void sendproducetName(String productName) {
-		//this.producetName.getAttribute("value");//added while TC 065
+		
 		this.producetName.sendKeys(productName);
 	}
-     
-	public String  getAttributeproductName (String str) {
-		return this.producetName.getAttribute(str) ;
-	}
-	
-	
-	
-	
+
 	public void sendmetaTitle(String metaTitle) {
 		this.metaTitle.sendKeys(metaTitle);
 	}
@@ -221,6 +237,32 @@ public class RTTC_035POM {
     	 this.saveButton.click();
      }
 
+     public void clicklogoutBtn() {
+    	 this.logoutBtn.click();
+     }
+
+     public void moveMouseoverToshoplink() {
+    	 Actions act =new Actions(driver);
+    	  act.moveToElement(shopLink).build().perform();
+     }
+    
+     public void moveMouseoverToearringlink () {
+    	 Actions act =new Actions(driver);
+    	 act.moveToElement(earrings).build().perform();
+     }
+
+     public void clickearringlink () {
+    	 this.earrings.click();
+     }
+      
+    public void sendSearchfiled (String str) {
+    	 this.searchfield.sendKeys(str);
+    }
+   
+    public String getTextForimgPrice() {
+    	 return this.imgPrice.getText();
+    }
+    
 }
 
 

@@ -25,13 +25,13 @@ import com.training.pom.RTTC_001POM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
-public class RTTC_061DBTests {
+public class RTTC_063ExcelTests {
 
 	
 	private WebDriver driver;
 	private String baseUrl;
-	private RTTC_001POM RTTC_001POM;  
-										
+	private RTTC_001POM RTTC_001POM; // RTTC_001 //To verify whether application allows the user to get registered by
+										// entering valid credentials in required fields
 	private static Properties properties;
 	private ScreenShot screenShot;
 	private ExtentTest test;
@@ -50,8 +50,8 @@ public class RTTC_061DBTests {
 		RTTC_001POM = new RTTC_001POM(driver);
 		baseUrl = properties.getProperty("baseURL");
 		screenShot = new ScreenShot(driver);
-		report = new ExtentReports("report\\RTTC_061.html");
-		test = report.startTest("Test Case RTTC_061");
+		report = new ExtentReports("report\\RTTC_063.html");
+		test = report.startTest("Test Case RTTC_063");
 		// open the browser
 		driver.get(baseUrl);
 	}
@@ -63,9 +63,8 @@ public class RTTC_061DBTests {
 		driver.quit();
 	}
 
-	//@Test(dataProvider = "excel-inputs", dataProviderClass = LoginDataProviders.class)
-	@Test(dataProvider = "db-inputs", dataProviderClass = LoginDataProviders.class)
-	public void databaseTest(String firstname, String lastname ,String email ,String telephone  ,String address1 ,String address2 , String city, String postalcode, String country , String region , String password , String confirmpassword  ) throws InterruptedException {
+	@Test(dataProvider = "excel-inputs", dataProviderClass = LoginDataProviders.class)
+	public void invalidMultipleUserRegistrationTest(String firstname, String lastname ,String email ,String telephone  ,String address1 ,String address2 , String city, String postalcode, String country , String region , String password , String confirmpassword  ) throws InterruptedException {
 
 		RTTC_001POM.moveMouseToaccountLink();
 		test.log(LogStatus.INFO, "Test Step 1.", "Mouse over to the account link");
@@ -112,19 +111,20 @@ public class RTTC_061DBTests {
 		RTTC_001POM.clickcontinueBtn();
 		test.log(LogStatus.INFO, "Test Step 19.", "Click on the continue button");
 
-		String expectedResult = "Congratulations! Your new account has been successfully created!";
-		String actualResult = (RTTC_001POM.getTextForwelcomeMesage());
+		String expectedResult = "Password confirmation does not match password!" ;
+		String actualResult = (RTTC_001POM.getTextForwarningMessage());
 		Assert.assertEquals(actualResult, expectedResult);
 
 		if (expectedResult.equals(actualResult)) {
-			test.log(LogStatus.PASS, "Test Passed", "A new accont has been created successfully");
+			test.log(LogStatus.PASS, "Test Passed", "Waring message displayed");
 		} else {
-			test.log(LogStatus.FAIL, "Test Failed", "No new account has been created ");
+			test.log(LogStatus.FAIL, "Test Failed", "No warning message displayed ");
 		}
 
-		screenShot.captureScreenShot("TC _061");
+		screenShot.captureScreenShot("TC _063");
 		report.endTest(test);
 		report.flush();
 
 	}
 }
+
